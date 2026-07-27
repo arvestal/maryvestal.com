@@ -198,7 +198,8 @@ commit — that expectation doesn't relax even when the branch/PR ceremony does.
 
 ## Project-specific
 
-*(Replace everything below with details for the actual project.)*
+*(Core concept below is still a placeholder — fill in once Mary's site content/purpose is
+decided. Footer/copyright conventions are already settled, see below.)*
 
 ### Core concept
 
@@ -223,8 +224,11 @@ npm test          # jest with coverage
 
 ### Conventions specific to this project
 
-(Anything that doesn't apply to every fork of this template — naming, business rules, data
-sources, etc.)
+- Footer (`views/layouts/main.hbs`): links to Allen (`https://allenvestal.com`), Taylor, and
+  Logan — no self-link to maryvestal.com, since this is Mary's own site. Copyright line links
+  `maryvestal.com` (the URL), not "Mary Vestal" (the name) — same pattern used on loganvestal.com
+  once it became Logan's site: the owner's own site doesn't link to itself in the family-sites
+  row, and the copyright identifies the property by URL, not by person.
 
 ### Known footguns / past bugs (don't reintroduce)
 
