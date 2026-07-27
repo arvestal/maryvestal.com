@@ -19,6 +19,41 @@ describe('GET /', () => {
   });
 });
 
+describe('GET /about', () => {
+  it('renders the about page', async () => {
+    const res = await request(app).get('/about');
+    expect(res.status).toBe(200);
+    expect(res.text).toContain('About');
+  });
+});
+
+describe('GET /contact', () => {
+  it('renders the contact page', async () => {
+    const res = await request(app).get('/contact');
+    expect(res.status).toBe(200);
+    expect(res.text).toContain('Contact');
+  });
+
+  it('lists the Facebook and Instagram social links', async () => {
+    const res = await request(app).get('/contact');
+    expect(res.text).toContain('aria-label="Facebook"');
+    expect(res.text).toContain('href="https://facebook.com/mjovestal"');
+    expect(res.text).toContain('aria-label="Instagram"');
+    expect(res.text).toContain('href="https://instagram.com/mjovestal"');
+  });
+});
+
+describe('GET /sitemap.xml', () => {
+  it('lists the static pages', async () => {
+    const res = await request(app).get('/sitemap.xml');
+    expect(res.status).toBe(200);
+    expect(res.headers['content-type']).toContain('application/xml');
+    expect(res.text).toContain('<loc>https://maryvestal.com/</loc>');
+    expect(res.text).toContain('<loc>https://maryvestal.com/about</loc>');
+    expect(res.text).toContain('<loc>https://maryvestal.com/contact</loc>');
+  });
+});
+
 describe('GET /health', () => {
   it('reports ok for the Railway healthcheck', async () => {
     const res = await request(app).get('/health');

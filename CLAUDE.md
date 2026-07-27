@@ -198,12 +198,13 @@ commit — that expectation doesn't relax even when the branch/PR ceremony does.
 
 ## Project-specific
 
-*(Core concept below is still a placeholder — fill in once Mary's site content/purpose is
-decided. Footer/copyright conventions are already settled, see below.)*
-
 ### Core concept
 
-What this site/app does, in 2-3 sentences.
+Mary Vestal's personal site: a simple landing page (not a gallery or app), Arizona-based,
+friendship-themed, with a light *Friends*/*Seinfeld* fan nod (coffee-cup nav icon/favicon riffs
+on *Friends*' Central Perk, mirroring the panda-emoji treatment on loganvestal.com). `/about` and
+`/contact` round it out; no admin/upload feature exists yet (may get a photo gallery like
+allenvestal.com's later — see [[maryvestal-project-site]]).
 
 ### Commands
 
@@ -218,8 +219,10 @@ npm test          # jest with coverage
 
 - `src/app.js` — entry point, view engine setup, middleware, route mounting
 - `src/lib/` — pure/testable logic (helpers, data transforms)
-- `src/routes/` — Express routers
-- `views/` — Handlebars templates (`views/layouts/main.hbs` is the shared layout)
+- `src/routes/index.js` — `/`, `/about`, `/contact`, `/sitemap.xml`
+- `views/` — Handlebars templates (`views/layouts/main.hbs` is the shared layout;
+  `views/partials/social-links.hbs` is the Facebook/Instagram icon pair, reused in the footer and
+  on `/contact`)
 - `public/` — static assets served as-is
 
 ### Conventions specific to this project
@@ -229,6 +232,13 @@ npm test          # jest with coverage
   `maryvestal.com` (the URL), not "Mary Vestal" (the name) — same pattern used on loganvestal.com
   once it became Logan's site: the owner's own site doesn't link to itself in the family-sites
   row, and the copyright identifies the property by URL, not by person.
+- **Social links are intentionally a subset of allenvestal.com's** — Mary only has Facebook
+  (`facebook.com/mjovestal`) and Instagram (`instagram.com/mjovestal`), not the full
+  X/YouTube/GitHub set. `views/partials/social-links.hbs` is per-project (not shared across
+  sites) specifically so each sibling site can list only the accounts that person actually has —
+  don't copy allenvestal.com's full icon set here or onto a future taylorvestal.com without
+  checking which accounts exist first.
+- SEO: OG tags + canonical link + `/sitemap.xml`, same pattern as loganvestal.com/allenvestal.com.
 
 ### Known footguns / past bugs (don't reintroduce)
 

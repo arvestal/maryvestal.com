@@ -7,12 +7,24 @@
   <meta name="description" content="{{#if metaDescription}}{{metaDescription}}{{else}}Mary Vestal — an Arizona-based tribute to friends, family, and good company.{{/if}}">
   <meta name="robots" content="{{#if noIndex}}noindex, nofollow{{else}}index, follow{{/if}}">
   {{#if canonicalUrl}}<link rel="canonical" href="{{canonicalUrl}}">{{/if}}
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Mary Vestal">
+  <meta property="og:title" content="{{#if pageTitle}}{{pageTitle}} — {{/if}}Mary Vestal">
+  <meta property="og:description" content="{{#if metaDescription}}{{metaDescription}}{{else}}Mary Vestal — an Arizona-based tribute to friends, family, and good company.{{/if}}">
+  {{#if canonicalUrl}}<meta property="og:url" content="{{canonicalUrl}}">{{/if}}
+
   <link rel="stylesheet" href="/css/main.css?v={{assetVersion}}">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>">
 </head>
 <body>
   <nav class="nav">
     <div class="nav-inner">
-      <a href="/" class="nav-brand">Mary Vestal</a>
+      <a href="/" class="nav-brand"><span class="nav-brand-icon" aria-hidden="true">☕</span>Mary Vestal</a>
+      <ul class="nav-links">
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
     </div>
   </nav>
 
@@ -22,10 +34,14 @@
 
   <footer class="footer">
     <nav class="footer-nav">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
       <a href="https://allenvestal.com">Allen</a>
       <a href="https://taylorvestal.com">Taylor</a>
       <a href="https://loganvestal.com">Logan</a>
     </nav>
+    {{> social-links}}
     <p>&copy; {{currentYear}} <a href="/">maryvestal.com</a>. All rights reserved.</p>
   </footer>
 </body>
