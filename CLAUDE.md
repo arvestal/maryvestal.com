@@ -244,5 +244,14 @@ npm run dev
 
 ### Deployment
 
-- Railway project: _name_, service: _name_, custom domain: _domain_
-- DNS: _where it's hosted (Cloudflare/registrar/etc.)_
+- Railway project: `mary-vestal`, service: `maryvestal-com`, custom domain: maryvestal.com (+
+  www). No persistent volume — this site has no upload/admin feature yet.
+- DNS: migrated from GoDaddy to Cloudflare (nameservers `becky.ns.cloudflare.com` /
+  `rob.ns.cloudflare.com`). The domain had no prior email/MX setup (was previously parked, DNS
+  hosted on NS1 rather than GoDaddy) — nothing needed preserving.
+- **The apex is Cloudflare-proxied (orange cloud), not DNS-only**, matching allenvestal.com/
+  loganvestal.com — set proactively from the start rather than after hitting Railway's
+  `CERTIFICATE_STATUS_TYPE_VALIDATING_OWNERSHIP` stuck-cert footgun (see the general note in
+  "Deployment (custom domain + Cloudflare DNS)" above). Cloudflare's Universal SSL cert serves
+  both apex and `www`.
+- `www` → Cloudflare Page Rule 301s to the apex, per the standard pattern.
