@@ -1,7 +1,7 @@
 {
-  "name": "website-starter",
+  "name": "maryvestal.com",
   "version": "1.0.0",
-  "description": "Starter template for new Node/Express/Handlebars sites — fork and rename.",
+  "description": "Mary Vestal's personal site — a landing page for now, more to come.",
   "main": "src/app.js",
   "scripts": {
     "start": "node src/app.js",

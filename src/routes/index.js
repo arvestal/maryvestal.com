@@ -3,7 +3,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
   res.render('home', {
-    metaDescription: 'Replace this with a real description before shipping.',
+    metaDescription: 'Mary Vestal — an Arizona-based tribute to friends, family, and good company.',
   });
 });
 

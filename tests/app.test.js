@@ -5,7 +5,7 @@ describe('GET /', () => {
   it('renders the landing page', async () => {
     const res = await request(app).get('/');
     expect(res.status).toBe(200);
-    expect(res.text).toContain('Site Name');
+    expect(res.text).toContain('Mary Vestal');
   });
 
   it('omits the canonical link when SITE_HOST is unset', async () => {
